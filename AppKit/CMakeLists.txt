@@ -45,6 +45,8 @@ find_package(Freetype REQUIRED)
 # but we still need to include its headers
 find_package(OpenGL REQUIRED)
 
+find_package(Boost)
+
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(PC_CAIRO cairo)
 pkg_check_modules(PC_FONTCONFIG fontconfig)
@@ -77,6 +79,7 @@ include_directories(
 	${OPENGL_INCLUDE_DIRS}
 	${PC_CAIRO_INCLUDE_DIRS}
 	${PC_FONTCONFIG_INCLUDE_DIRS}
+	${Boost_INCLUDE_DIR}
 )
 
 set(AppKit_sources

@@ -364,4 +364,14 @@ NSString *const kCAContentsFormatGray8Uint = @"Gray8";
     _textureId = value;
 }
 
+//Fixes for RobloxPlayer
+
+- (CGFloat) contentsScale {
+    return _contentsScale;
+}
+
+- (void) setContentsScale: (CGFloat) scale {
+    _contentsScale = scale;
+}
+
 @end

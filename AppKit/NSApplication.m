@@ -1573,6 +1573,8 @@ int NSApplicationMain(int argc, const char *argv[]) {
 
     [class sharedApplication];
 
+    NSLog(@"Attempting to load nibFile %@", nibFile);
+
     nibFile = [nibFile stringByDeletingPathExtension];
 
     if (![NSBundle loadNibNamed: nibFile owner: NSApp])

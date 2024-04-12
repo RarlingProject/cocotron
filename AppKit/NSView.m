@@ -1014,6 +1014,18 @@ static inline void buildTransformsIfNeeded(NSView *self) {
                       point2.y - point1.y);
 }
 
+//Fixes for RobloxPlayer
+//Hacky implementation from WebCore
+
+- (NSSize) convertSizeToBacking: (NSSize) size {
+   NSSize finalSize = size;
+    if (finalSize.width < 0)
+        finalSize.width = -finalSize.width;
+    if (finalSize.height < 0)
+        finalSize.height = -finalSize.height;
+    return finalSize;
+}
+
 - (NSRect) centerScanRect: (NSRect) rect {
     CGFloat minx = floor(NSMinX(rect) + 0.5);
     CGFloat miny = floor(NSMinY(rect) + 0.5);
@@ -2110,8 +2122,7 @@ static NSView *viewBeingPrinted = nil;
 }
 
 - (BOOL) canDrawConcurrently {
-    NSUnimplementedMethod();
-    return NO;
+    return YES;
 }
 
 - (void) viewWillDraw {
@@ -2119,7 +2130,7 @@ static NSView *viewBeingPrinted = nil;
 }
 
 - (void) setCanDrawConcurrently: (BOOL) canDraw {
-    NSUnimplementedMethod();
+    //ok
 }
 
 - (void) _lockFocusInContext: (NSGraphicsContext *) context {

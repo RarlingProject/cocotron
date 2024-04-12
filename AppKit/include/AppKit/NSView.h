@@ -211,9 +211,12 @@ APPKIT_EXPORT const NSViewFullScreenModeOptionKey NSFullScreenModeApplicationPre
 - (NSPoint) convertPoint: (NSPoint) point toView: (NSView *) viewOrNil;
 - (NSSize) convertSize: (NSSize) size fromView: (NSView *) viewOrNil;
 - (NSSize) convertSize: (NSSize) size toView: (NSView *) viewOrNil;
+- (NSSize) convertSizeToBacking: (NSSize) size;
 - (NSRect) convertRect: (NSRect) rect fromView: (NSView *) viewOrNil;
 - (NSRect) convertRect: (NSRect) rect toView: (NSView *) viewOrNil;
 - (NSRect) centerScanRect: (NSRect) rect;
+
+- (BOOL) canDrawConcurrently;
 
 - (void) setFrame: (NSRect) frame;
 - (void) setFrameSize: (NSSize) size;
